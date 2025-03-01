@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Backend</title>
+</head>
+<body>
+    <h2>Test Backend CRUD</h2>
+    <button onclick="fetchItems()">View Items</button>
+    <div id="output"></div>
+    <script>
+        function fetchItems() {
+            fetch("http://localhost:5000/items")
+                .then(res => res.json())
+                .then(data => document.getElementById("output").innerText = JSON.stringify(data, null, 2))
+                .catch(err => console.error(err));
+        }
+    </script>
+</body>
+</html>
