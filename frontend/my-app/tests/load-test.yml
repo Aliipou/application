@@ -1,0 +1,13 @@
+config:
+  target: 'http://localhost:3000'  # Replace this with your backend URL or the app's URL
+  phases:
+    - duration: 60  # Test for 60 seconds
+      arrivalRate: 5  # 5 new virtual users per second
+  defaults:
+    headers:
+      User-Agent: 'Artillery Load Test'
+
+scenarios:
+  - flow:
+      - get:
+          url: '/api/endpoint'  # Replace this with the API endpoint you're testing
